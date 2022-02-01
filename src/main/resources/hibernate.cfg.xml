@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/jee
+        http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+<!-- <hibernate-configuration>
+    <session-factory>
+      	<property name = "hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+      	<property name = "hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+      	<property name = "hibernate.connection.url">jdbc:sqlserver://DESKTOP-84GBJ7A\\MSSQLSERVER01;databaseName=HashavatAveda;</property>
+      	<property name = "hibernate.connection.username">sa</property>
+      	<property name = "hibernate.connection.password">123456</property>
+      	<property name = "hibernate.show_sql">true</property>
+      	<property name = "hibernate.format_sql">true</property>
+      	
+        <property name="hibernate.connection.pool_size">1</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</property>
+	<property name="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</property>
+        <property name="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</property>
+        
+
+    </session-factory>
+</hibernate-configuration> -->
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+    <property name="url" value="jdbc:sqlserver://DESKTOP-84GBJ7A\\MSSQLSERVER01;databaseName=HashavatAveda;" />
+    <property name="username" value="sa" />
+    <property name="password" value="123456" />
+</bean>
+<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="mappingResources">
+        <list>
+            <value>org/springframework/samples/petclinic/hibernate/petclinic.hbm.xml</value>
+        </list>
+    </property>
+    <property name="hibernateProperties">
+        <value>
+            hibernate.dialect=${hibernate.dialect}
+        </value>
+    </property>
+</bean>
+
+<bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    <property name="sessionFactory" ref="sessionFactory"/>
+</bean>
+</beans>
