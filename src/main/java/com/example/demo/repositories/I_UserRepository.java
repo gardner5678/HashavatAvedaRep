@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.model.Users;
+import com.example.demo.entities.Users;
 
 @Repository
 public interface I_UserRepository extends JpaRepository<Users, Long> {

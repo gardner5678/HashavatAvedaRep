@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.model.Users;
+import com.example.demo.entities.Users;
 //import com.example.demo.utility.T_Transaction;
 @Repository
 @Transactional(readOnly=false)

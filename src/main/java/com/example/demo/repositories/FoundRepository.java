@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.model.Founds;
+import com.example.demo.entities.Founds;
 //import com.example.demo.utility.T_Transaction;
 @Repository
 @Transactional
