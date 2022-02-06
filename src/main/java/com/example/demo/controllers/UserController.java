@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Founds;
-import com.example.demo.model.Losts;
-import com.example.demo.model.Users;
+import com.example.demo.entities.Founds;
+import com.example.demo.entities.Losts;
+import com.example.demo.entities.Users;
 import com.example.demo.services.FoundService;
 import com.example.demo.services.LostService;
 import com.example.demo.services.UserService;
-import com.example.demo.utility.SearchLogic;
 import com.example.demo.utility.UserLogic;
 
 @RestController
@@ -43,9 +43,23 @@ public class UserController {
     public Users get(@PathVariable("mail") String userMail, @PathVariable("password") String userPassword){
         return userLogic.signIn(userMail, userPassword);
     }
-//    @PostMapping({"/{user}"})
-//    public int Post([FromBody]User u){
-//        //emailSending.Send(u.UserMail);
-//        return userLogic.SignUp(u);
-//    }
+    @PostMapping({"/{user}"})
+    public Long post(@RequestBody Users u){
+        return userLogic.signUp(u);
+    }
+    @PostMapping("/uploadLogo")
+    public String uploadLogo()
+    {
+    	//TODO לברר
+//        System.Web.HttpRequest httpRequest = HttpContext.Current.Request;
+//        System.Web.HttpPostedFile postedFile = httpRequest.Files["Image"];
+//        if (postedFile != null)
+//        {
+//            String filePath = HttpContext.Current.Server.MapPath("~/Images/" + postedFile.FileName);
+//            postedFile.SaveAs(filePath);
+//            return postedFile.FileName;
+//        }
+        return null;
+
+    }
 }

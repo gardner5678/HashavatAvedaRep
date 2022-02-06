@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Founds;
-import com.example.demo.model.Losts;
+import com.example.demo.entities.Founds;
+import com.example.demo.entities.Losts;
 import com.example.demo.services.FoundService;
 import com.example.demo.services.LostService;
 import com.example.demo.utility.SearchLogic;
