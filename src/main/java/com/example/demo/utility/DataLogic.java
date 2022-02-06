@@ -10,13 +10,13 @@ import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.demo.model.Categories;
-import com.example.demo.model.Colors;
-import com.example.demo.model.Founds;
-import com.example.demo.model.Items;
-import com.example.demo.model.Losts;
-import com.example.demo.model.Materials;
-import com.example.demo.model.Users;
+import com.example.demo.entities.Categories;
+import com.example.demo.entities.Colors;
+import com.example.demo.entities.Founds;
+import com.example.demo.entities.Items;
+import com.example.demo.entities.Losts;
+import com.example.demo.entities.Materials;
+import com.example.demo.entities.Users;
 import com.example.demo.repositories.FoundRepository;
 import com.example.demo.repositories.I_FoundRepository;
 import com.example.demo.repositories.I_LostRepository;
@@ -54,49 +54,40 @@ public class DataLogic {
 		this.materialService = materialService;
 		this.colorsService = colorsService;
 	}
-    public List<Users> GetCompanies()
-    {
+    public List<Users> getCompanies(){
         return userService.getAllUsers();
     }
-    public List<Categories> GetCategories()
-    {
+    public List<Categories> getCategories(){
         return categoriesService.getAllCategories();
     }
-    public List<Items> GetItems()
-    {
+    public List<Items> getItems(){
         return itemService.getAllItems();
     }
-    public List<Materials> GetMaterials()
-    {
+    public List<Materials> getMaterials(){
         return materialService.getAMaterials();
     }
-    public List<Colors> GetColors()
-    {
+    public List<Colors> getColors(){
         return colorsService.getAllColors();
     }
-    public void saveOrUpdateLost(Losts lost)
-    {
+    public void saveOrUpdateLost(Losts lost){
     	lostService.saveOrUpdateLost(lost);
     }
-    public void RemoveLost(Losts lost)
-    {
+    public void removeLost(Losts lost){
     	lostService.deleteLost(lost);
     }
-    public void saveOrUpdateFound(Founds found)
-    {
+    public void saveOrUpdateFound(Founds found){
     	foundService.saveOrUpdateFound(found);
     }
-    public void RemoveFound(Founds found)
-    {
+    public void removeFound(Founds found){
     	foundService.deleteFound(found);
     }
-    public void updateLostStatus(Losts lost)
-    {
+    public void updateLostStatus(Long id){
+    	Losts lost = lostService.getLost(id).get();
     	lost.setLostStatus(true);
     	lostService.saveOrUpdateLost(lost);
     }
-    public void updateFoundStatus(Founds found)
-    {
+    public void updateFoundStatus(Long id){
+    	Founds found = foundService.getFound(id).get();
     	found.setFoundStatus(true);
     	foundService.saveOrUpdateFound(found);
     }

@@ -1,6 +1,6 @@
 package com.example.demo.services;
-import com.example.demo.model.Founds;
-import com.example.demo.model.Losts;
+import com.example.demo.entities.Founds;
+import com.example.demo.entities.Losts;
 import com.example.demo.repositories.FoundRepository;
 import com.example.demo.repositories.I_FoundRepository;
 //import com.example.demo.utility.T_Transaction;
@@ -17,11 +17,6 @@ import java.util.Optional;
 @Service
 @Transactional
 public class FoundService {
-//  I_FoundRepository FoundRepository;
-//  
-//  public C_FoundService(I_FoundRepository FoundRepository) {
-//      this.FoundRepository = FoundRepository;
-//  }
 	@Autowired
 	FoundRepository foundRepository;
   protected final Log logger = LogFactory.getLog(getClass());

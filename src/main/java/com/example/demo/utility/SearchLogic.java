@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-import com.example.demo.model.Founds;
-import com.example.demo.model.Losts;
+import com.example.demo.entities.Founds;
+import com.example.demo.entities.Losts;
 import com.example.demo.services.FoundService;
 import com.example.demo.services.LostService;
 
@@ -35,7 +35,7 @@ public class SearchLogic {
 		return newFounds;
 	}
 
-	public List<Founds> SearchInFoundsWithManyParams(Losts myFound) {
+	public List<Founds> searchInFoundsWithManyParams(Losts myFound) {
 		// איך להתייחס לקטגורית אחר?
 		List<Founds> suitableLosts = new ArrayList<>();
 		// סינון ראשוני לפי קטגוריה ופריט
@@ -107,7 +107,7 @@ public class SearchLogic {
 		return newLosts;
 	}
 
-	public List<Losts> SearchInLostsWithManyParams(Founds myFound)
+	public List<Losts> searchInLostsWithManyParams(Founds myFound)
 	{
 		//איך להתייחס לקטגורית אחר?
 		List<Losts> suitableLosts = new ArrayList<>();

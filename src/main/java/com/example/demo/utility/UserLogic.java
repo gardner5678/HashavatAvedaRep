@@ -3,9 +3,9 @@ package com.example.demo.utility;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.demo.model.Founds;
-import com.example.demo.model.Losts;
-import com.example.demo.model.Users;
+import com.example.demo.entities.Founds;
+import com.example.demo.entities.Losts;
+import com.example.demo.entities.Users;
 import com.example.demo.services.FoundService;
 import com.example.demo.services.LostService;
 import com.example.demo.services.UserService;

@@ -1,6 +1,6 @@
 package com.example.demo.services;
-import com.example.demo.model.Founds;
-import com.example.demo.model.Items;
+import com.example.demo.entities.Founds;
+import com.example.demo.entities.Items;
 import com.example.demo.repositories.FoundRepository;
 import com.example.demo.repositories.I_ItemRepository;
 //import com.example.demo.utility.T_Transaction;
@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.math.BigDecimal;
 import java.math.BigDecimal;
 
@@ -26,6 +27,6 @@ public class ItemService {
 		return itemRepository.getAllItems();
 	}
 	
-	public Items getFound(Long id) {
+	public Optional<Items> getFound(Long id) {
 		return itemRepository.getItems(id);
 	}}

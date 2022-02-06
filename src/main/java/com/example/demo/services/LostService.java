@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.model.Losts;
+import com.example.demo.entities.Losts;
 //import com.example.demo.utility.T_Transaction;
 import com.example.demo.repositories.LostRepository;
 

@@ -13,18 +13,17 @@ import javax.mail.internet.MimeMessage;
 
 public class EmailSending {
 
-	public void sendNewUser(String emailTo) {
+	public static void sendNewUser(String emailTo) {
 		String subject = "הרשמה לאתר 'מצאתי'";
 		String content = "<h3>נרשמת בהצלחה לאתר 'מצאתי' האתר החברתי לאבידות ומציאות</h3>";
 		sendEmail(emailTo, subject, null, content);
 	}
-	public void sendToUser(String emailTo, String content) {
+	public static void sendToUser(String emailTo, String content) {
 		String subject = "הרשמה לאתר 'מצאתי'";
 		sendEmail(emailTo, subject, null, content);
 	}
-
-	private void sendEmail(String emailTo, String subject,String text, String content) {
-		String emailFrom = "sara0556785768@gmail.com";
+	private static void sendEmail(String emailTo, String subject,String text, String content) {
+		String emailFrom = "hashavat.aveda.0@gmail.com";
 		// Recipient's email ID needs to be mentioned.
 		String to = emailTo;
 
@@ -45,7 +44,7 @@ public class EmailSending {
 		// Get the Session object.// and pass username and password
 		Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(emailFrom, "s5a6r7a8");
+				return new PasswordAuthentication(emailFrom, "ruty3857");
 			}
 
 		});
